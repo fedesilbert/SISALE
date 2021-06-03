@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Productos</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Actors (<%= producto.length %>) </h1>
+    <ul>
+      <% actors.forEach(product => { %>
+        <li><%= producto.nombre.toUpperCase() %></li>
+       <% }) %>
+    </ul>
+  </body>
+</html>

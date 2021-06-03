@@ -1,20 +1,20 @@
-var products = require('../modules/products')
-const productController = {
-    index: function(req, res, next){
-        res.render('product',{title: 'Express'});
+
+let db = require("../database/models");
+
+const productsController = {
+    index: function (req, res) {
+        db.Producto.findAll()
+        .then((data) => {
+            return res.render('products/product', { 
+                products: data 
+            });
+        })
+        .catch((error) => {
+            return res.send(error);
+        })
     },
-    show: function(req, res, next){
-        let product=null
-        for (let i = 0; i< products.length; i++) {
-         if (products[i].id== req.params.id) {
-             product= products[i];
-             }
-        } 
-        res.render('product',{
-        product: product
-    });
-    }
-   
 }
+   
+
     
-module.exports = productController;
+module.exports = productsController;
