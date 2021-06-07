@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    let alias = 'producto';
+    let alias = 'Producto';
 
     let cols = {
         id: {
@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
         
     }
 
-    const producto = sequelize.define(alias, cols, config);
+    const Producto = sequelize.define(alias, cols, config);
 
-    return producto;
+    return Producto;
 }

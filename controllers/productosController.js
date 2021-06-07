@@ -3,10 +3,10 @@ let db = require("../database/models");
 
 const productsController = {
     index: function (req, res) {
-        db.producto.findAll()
+        db.Producto.findAll()
         .then((data) => {
             return res.render('products/product', { 
-                products: data 
+                producto: data 
             });
         })
         .catch((error) => {
