@@ -16,11 +16,18 @@ module.exports = (sequelize, DataTypes) => {
         usuario_id: {
             type: DataTypes.INTEGER
         }, 
+        created_at: {
+            type: DataTypes.DATE
+        },
+        updated_at: {
+            type: DataTypes.DATE
+        },
     }
 
     let config = {
         tableName: 'producto',
-        underscored: true
+        underscored: true,
+        
     }
 
     const producto = sequelize.define(alias, cols, config);

@@ -19,6 +19,12 @@ module.exports = (sequelize, DataTypes) => {
         telefono: {
             type: DataTypes.STRING
         },
+        created_at: {
+            type: DataTypes.DATE
+        },
+        updated_at: {
+            type: DataTypes.DATE
+        },
     }
 
     let config = {

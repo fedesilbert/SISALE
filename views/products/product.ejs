@@ -5,10 +5,10 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1>Actors (<%= producto.length %>) </h1>
+    <h1>Products(<%= producto.length %>) </h1>
     <ul>
       <% actors.forEach(product => { %>
-        <li><%= producto.nombre.toUpperCase() %></li>
+        <li><%= producto.nombre %></li>
        <% }) %>
     </ul>
   </body>
