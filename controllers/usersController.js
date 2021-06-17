@@ -1,12 +1,18 @@
 
 const usersController = {
-'register': function(req, res, next){
-    res.render('register', {register: 'register'})
-},
-'login': function(req, res, next){
-    res.render('login', {login: 'login'})
+    index: function (req, res) {
+        db.User.findAll()
+        .then((data) => {
+            return res.render('users/index', { 
+                users: data,
+            });
+        })
+        .catch((error) => {
+            return res.send(error);
+        })
+    },
  
 }
 
-}
+
 module.exports = usersController;

@@ -28,11 +28,18 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     let config = {
-        tableName: 'user',
+        tableName: 'usuario',
         underscored: true
     }
 
     const Usuario = sequelize.define(alias, cols, config);
+    Usuario.associate = function(models){
+        Usuario.hasMany(models.Producto,{
+            as: "producto",
+           
+        })
+    }
+
 
     return Usuario;
 }

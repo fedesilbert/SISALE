@@ -2,6 +2,7 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+const session = require('express-session');
 
 var logger = require('morgan');
 
@@ -18,6 +19,7 @@ var profile = require('./routes/profile');
 var resultadoBusqueda = require('./routes/resultadoBusqueda');
 
 
+
 var app = express();
 
 // view engine setup
@@ -29,6 +31,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(
+  session({
+    secret: 'secret',
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24 * 7,
+    },
+  }),
+);
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

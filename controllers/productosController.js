@@ -1,17 +1,31 @@
-
 let db = require("../database/models");
+
+const op = db.Sequelize.Op;
 
 const productsController = {
     index: function (req, res) {
         db.Producto.findAll()
         .then((data) => {
             return res.render('products/product', { 
-                producto: data 
+                productos: data 
             });
         })
         .catch((error) => {
             return res.send(error);
         })
+    },
+
+    detail: function(req,res){
+        db.Producto.findByPk(req.params.id)
+        .then((data)=>{
+            return res.render("products/detail",{
+                producto: data
+            }); 
+            
+        })
+        .catch((error) => {
+            return res.send(error);
+        }); 
     },
 }
    

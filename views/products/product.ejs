@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Productos</title>
-    <link rel='stylesheet' href='stylesheets/style.css' />
-  </head>
-  <body>
+<%- include('../partials/header') %>>
 
 
 
@@ -22,11 +16,11 @@
   <div id="products" class="row list-group">
       <div class="item  col-xs-4 col-lg-4">
           <div class="thumbnail">
-            <% producto.forEach(product => { %>
+            <% productos.forEach(product => { %>
               <img class="group list-group-image" src="<%= product.imagen %>" alt="" />
               <div class="caption">
                   <h4 class="group inner list-group-item-heading">
-                      <%= product.nombre %></h4> 
+                      <a href="/routeProd/<%= product.id %>/detail"><%= product.nombre %></a></h4> 
                       <% }) %>
                   <p class="group inner list-group-item-text">
                       Product description
