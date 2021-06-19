@@ -6,9 +6,7 @@ body {
 a {
   color: #00B7FF;
 }
-.imagenprod{
-  width: 50%;
-}
+
 
 .selector-for-some-widget {
   box-sizing: content-box;
@@ -21,4 +19,8 @@ a {
 .logo__img{
   width: 150px;
 }
+#navbarNavAltMarkup{
+  background-color: cyan;
+}
+
 

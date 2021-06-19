@@ -15,7 +15,8 @@
 
 </head>
 <body>
-  <header class="header_fijo  normal" id="encabezadoGeneral">
+  
+   <header class="header_fijo  normal" id="encabezadoGeneral">
     <!-- Fin top-header -->
   
     <div class="container  normal" id="contenedorEncabezador">
@@ -41,33 +42,30 @@
               </div>
             </div><!-- Fin Buscador -->
           </div>
-  
-                    <div class="col-md-3 col-xs-3 marcoCarrito">
-  
-              <div class="header-cart">
-                <a id="hyperReferenciaCarrito" href="/?gclid=CjwKCAjwiLGGBhAqEiwAgq3q_v4WsJDLpjxUBTq_5usxuhfo_VZ0xpa2WFJaO9Y-iK5wKaDbLSd3PRoCdXMQAvD_BwE&amp;seccion=11">
-                  <div class="header-cart__preview">
-                    <span class="" aria-hidden="false">
-                      <img src="https://compragamer.net/assets/img/cartMaterialOK.png" width="28" height="28" alt="">
-                    </span>
-                    <span id="cantidadCarrito" class="color_primary resumen_cantidad normal" hidden-xs"="">0</span>
-                  </div>
-                </a>
-              </div>
-            </div>
-                  </div>
-  
-  
-                <div class="row marcoNewtonBannerFondo normal" style="margin-bottom:0; padding:0px;">
-            <div style="text-align:center;" class="newtonBanner" data-posicion="2" data-web="cg" data-bannert="UDAqFdrZ9n2ofLAdjtCcj6KdtzBm2WcokvUsy6B1yX8tzgOa0c">
-            </div>
-          </div>
-        
+          <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            <% if (locals.user) { %>
+              <li><a href="/products/add" class="nav-link px-2 link-dark">Add product</a></li>
+              <li><a href="/user/profile" class="nav-link px-2 link-dark">Profile</a></li>
+            <% } %>
+          </ul>
+    
+          <div class="col-md-3 text-end">
+            <% if (locals.user) { %>
+              Logger in as <%= user.username %>.
+              <a href="/logout">Logout</a>
+            <% } else { %>
+              <a href="/login" class="btn btn-primary">Login</a>
+              <a href="/register" class="btn btn-primary">Registrate</a>
+            <% } %>
+          </div>  
       </div>
       <!-- Fin header-inner-->
     </div>
     <!-- Fin Contenedor-->
   </header>
+
+  
+  
   
 
   

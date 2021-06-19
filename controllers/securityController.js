@@ -3,7 +3,7 @@ let db = require("../database/models");
 
 let securityController = {
     login: function (req, res) {
-        return res.render('security/login', {
+        return res.render('seguridad/login', {
             failed: req.query.failed
         });
     },
@@ -38,7 +38,7 @@ let securityController = {
         }
 
         if (req.method == 'GET') {
-            return res.render('security/register');
+            return res.render('seguridad/register');
         }
     },
     logout: function(req, res){

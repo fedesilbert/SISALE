@@ -29,7 +29,19 @@ module.exports = (sequelize, DataTypes) => {
         underscored: true
     }
 
-    const comentarios = sequelize.define(alias, cols, config);
+   
+    const Comentarios = sequelize.define('Comentarios', cols, { underscored: true });
 
-    return comentarios;
+  Comentarios.associate = (models) => {
+    Comentarios.belongsTo(models.Producto, {
+      as: 'product',
+      foreignKey: 'product_id',
+    });
+    Comentarios.belongsTo(models.Usuario, {
+      as: 'usuario',
+      foreignKey: 'user_id',
+    });
+  };
+
+    return Comentarios;
 }

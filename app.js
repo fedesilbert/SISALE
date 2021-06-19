@@ -17,6 +17,7 @@ var productAdd = require('./routes/product-add');
 var profileEdit = require('./routes/profile-edit');
 var profile = require('./routes/profile');
 var resultadoBusqueda = require('./routes/resultadoBusqueda');
+var securityRouter = require('./routes/security');
 
 
 
@@ -50,9 +51,23 @@ app.use('/routeProd', routeProd);
 app.use('/product-add', productAdd );
 app.use('/profile-edit', profileEdit );
 app.use('/profile', profile );
+app.use('/', securityRouter)
 app.use('/resultadoBusqueda', resultadoBusqueda );
 app.use('/css', express.static(__dirname = 'public/stylesheets'))
 app.use('/img', express.static(__dirname = 'public/images'))
+ //Mid Cookes
+app.use(async (req, res, next) => {
+  if (req.cookies.userId !== undefined && req.session.user === undefined) {
+    req.session.user = await db.Usuario.findByPk(req.cookies.userId);
+  }
+  next();
+});
+
+// Middleware session
+app.use((req, res, next) => {
+  if (req.session.user !== undefined) res.locals.user = req.session.user;
+  next();
+});
 
 
 
