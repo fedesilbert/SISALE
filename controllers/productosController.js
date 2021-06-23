@@ -4,7 +4,11 @@ const op = db.Sequelize.Op;
 
 const productsController = {
     index: function (req, res) {
-        db.Producto.findAll()
+        db.Producto.findAll({
+            include: [
+              { association: 'comentarios' },
+            ],
+          })
         .then((data) => {
             return res.render('products/product', { 
                 productos: data 
@@ -14,6 +18,7 @@ const productsController = {
             return res.send(error);
         })
     },
+    
 
     detail: function(req,res){
         db.Producto.findByPk(req.params.id)
