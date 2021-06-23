@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         usuario_id: {
             type: DataTypes.INTEGER
-        }, 
+        },
         created_at: {
             type: DataTypes.DATE
         },
@@ -27,22 +27,23 @@ module.exports = (sequelize, DataTypes) => {
     let config = {
         tableName: 'producto',
         underscored: true,
-        
+
     }
 
     const Producto = sequelize.define(alias, cols, config);
 
-    Producto.associate = function(models){
-        Producto.belongsTo(models.Usuario,{
+    Producto.associate = function (models) {
+        Producto.belongsTo(models.Usuario, {
             as: "usuario",
-            foreignKey:"usuario_id"
+            foreignKey: "usuario_id"
         })
-        Producto.associate = (models) => {
-            Producto.hasMany(models.Comentarios, {
-              as: 'comentarios',
-              foreignKey: 'producto_id',
-            });}
-        }
 
-    return Producto;
+        Producto.hasMany(models.Comentarios, {
+            as: 'comentarios',
+            foreignKey: 'producto_id',
+        });
+    }
+
+
+return Producto;
 }
