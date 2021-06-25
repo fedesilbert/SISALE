@@ -1,7 +1,7 @@
 
 const indexController = {
     index: function(req, res, next){
-        res.render('products/product',
+        res.render('products/show',
         {
             
         });

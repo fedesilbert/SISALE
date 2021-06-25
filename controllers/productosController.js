@@ -1,5 +1,7 @@
-
+const { sequelize } = require("../database/models");
 let db = require("../database/models");
+const op = db.Sequelize.Op;
+
 
 
 //Novedades: mostrará los últimos productos agregados de forma descendente. El último producto agregado debe verse en primer lugar.
@@ -8,44 +10,53 @@ let db = require("../database/models");
 const productsController = {
     index: function (req, res, next) {
         db.Producto.findAll({
-            include:[ 
-               { association: "comentarios"} 
+            include: [
+                { association: "producto_usuario"},
+
             ],
             order: [
-                ["created_at", "DESC"]
+                ["fecha_creacion", "DESC"]
             ]
         })
-        .then((data) => {
-            return res.render('products/product', { 
-                productos: data 
+            .then((data) => {
+                return res.render('products/product', {
+                    productos: data
+                });
+
+            })
+            .catch((error) => {
+                return next(error)
             });
-        })
-        .catch((error) => {
-            return next(error)
-        })
     },
-    async show(req, res) {
-        const product = await db.Producto.findByPk(req.params.id, { include: [{ association: 'usuario' }] });
-        const comments = await db.Comentarios.findAll(
-          { where: { producto_id: req.params.id }, include: [{ association: 'usuario' }] },
-        );
-      },
-    
 
-    detail: function(req,res){
-        db.Producto.findByPk(req.params.id)
-        .then((data)=>{
-            return res.render("products/detail",{
-                producto: data
-            }); 
+
+
+
+
+
+    detail: function (req, res) {
+        db.Producto.findByPk(req.params.id, { include: [
+            { association: 'producto_comentarios' }
+        ] 
+        })
+            .then((producto) => {
+                db.Comentarios.findAll( {include: [
+                    { association: 'comentarios_usuario' },
+                    { association: 'comentarios_producto' }
+                ] 
+                })
+                    .then((comentarios) => {
+                        return res.render("products/detail", {
+                            producto,
+                            comentarios,
+                        })
+
+                    });
+            });
             
-        })
-        .catch((error) => {
-            return res.send(error);
-        }); 
-    },
+    }
 }
-   
 
-    
+
+
 module.exports = productsController;

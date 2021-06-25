@@ -27,7 +27,7 @@ let securityController = {
     },
     register: function (req, res) {
         if (req.method == 'POST') {
-            req.body.password = bcrypt.hashSync(req.body.password);
+            req.body.contrasenia = bcrypt.hashSync(req.body.contrasenia);
             db.Usuario.create(req.body)
             .then(() => {
                 return res.redirect('/')

@@ -4,7 +4,8 @@ let productController= require('../controllers/productosController')
 
 router.get('/', productController.index)
 router.get('/:id/detail', productController.detail);
-router.get('/:id', productController.show);
+
+
 
 
 module.exports = router;

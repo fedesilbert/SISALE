@@ -10,12 +10,12 @@ module.exports = (sequelize, DataTypes) => {
         nombreusuario: {
             type: DataTypes.STRING
         },
-        contraseña: {
+        contrasenia: {
             type: DataTypes.STRING
         },
         fecha_nacimiento: {
             type: DataTypes.DATE
-        }, 
+        },
         telefono: {
             type: DataTypes.STRING
         },
@@ -28,27 +28,26 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     let config = {
-        tableName: 'usuario',
+        tableName: "usuario",
         underscored: true
     }
-  
+
 
     const Usuario = sequelize.define(alias, cols, config);
-    Usuario.associate = function(models){
-        Usuario.hasMany(models.Producto,{
-            as: "productos",
+    Usuario.associate = function (models) {
+        Usuario.hasMany(models.Producto, {
+            as: "usuario_productos",
             foreignKey: 'usuario_id',
-           
+
         })
-        Usuario.associate = (models) => {
             Usuario.hasMany(models.Comentarios, {
-              as: 'comentarios',
-              foreignKey: 'user_id',
-            });
-        }
+            as: 'usuario_comentarios',
+            foreignKey: 'user_id',
+        });
     }
-    
 
 
-    return Usuario;
+
+
+return Usuario;
 }

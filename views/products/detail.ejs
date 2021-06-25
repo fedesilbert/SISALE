@@ -1,7 +1,36 @@
 <%- include('../partials/header') %>
 
-<h2><%=producto.nombre%><h2>    
-    <h1><img class="" src="<%= producto.imagen %>" alt="" /></h1>
-    
-  </body>
-</html>
+  <h2>
+    <%=producto.nombre%>
+      <h2>
+        <div class="card mb-3">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <a href="/<%= producto.id %>/detail"><img class="imagenprod" src="<%= producto.imagen %>" alt=""
+                  width="200px" /></a>
+                  
+            </div>
+            <div class="col-md-8">
+              <div class="card-body p-3">
+                <h5 class="card-title">Comentarios: </h5>  
+                <div class="col-md-8">
+                  <% if(comentarios.length > 0) { %>
+                    <% for( let i = 0; i < comentarios.length; i++ ) { %>
+                      <p><%= comentarios[i].comentarios_usuario.nombreusuario %> :  <%= comentarios[i].comentario %></p>
+                    <% } %>
+                  <% } else { %>
+                    <div class="alert alert-secondary" role="alert">
+                      There is no comments yet
+                    </div>
+                  <% } %>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <%- include('../partials/footer') %>

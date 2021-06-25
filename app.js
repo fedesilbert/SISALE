@@ -47,7 +47,7 @@ app.use(
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-app.use('/routeProd', routeProd);
+app.use('/', routeProd);
 app.use('/product-add', productAdd );
 app.use('/profile-edit', profileEdit );
 app.use('/profile', profile );

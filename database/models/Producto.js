@@ -16,6 +16,9 @@ module.exports = (sequelize, DataTypes) => {
         usuario_id: {
             type: DataTypes.INTEGER
         },
+        fecha_creacion: {
+            type: DataTypes.DATE
+        },
         created_at: {
             type: DataTypes.DATE
         },
@@ -34,16 +37,16 @@ module.exports = (sequelize, DataTypes) => {
 
     Producto.associate = function (models) {
         Producto.belongsTo(models.Usuario, {
-            as: "usuario",
+            as: "producto_usuario",
             foreignKey: "usuario_id"
         })
 
         Producto.hasMany(models.Comentarios, {
-            as: 'comentarios',
+            as: 'producto_comentarios',
             foreignKey: 'producto_id',
         });
     }
 
 
-return Producto;
+return Producto;    
 }
