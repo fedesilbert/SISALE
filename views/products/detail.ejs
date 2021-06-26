@@ -6,9 +6,12 @@
         <div class="card mb-3">
           <div class="row g-0">
             <div class="col-md-4">
+              <% if (locals.user && locals.user.id === producto.usuario_id) { %>
+              <a class="btn btn-danger" href="/" onclick="return confirm('Are you sure?') ? true : event.preventDefault()">Delete</a>
+              <% } %>
+              <a class="btn btn-primary" href="/<%= producto.id %>/edit">Edit</a>
               <a href="/<%= producto.id %>/detail"><img class="imagenprod" src="<%= producto.imagen %>" alt=""
-                  width="200px" /></a>
-                  
+                  width="200px" /></a>                 
             </div>
             <div class="col-md-8">
               <div class="card-body p-3">
