@@ -6,13 +6,16 @@
       <label for="email">Email:</label><br>
       <input type="text" id="email" name="email"> <br>
       <label for="password">Password:</label><br>
-      <input type="password" id="password" name="password"><br>
-      <input type="checkbox" id="rememberme" name="rememberme">
-      <label for="rememberme">Rememberme</label><br><br>
+      <input type="password" id="password" name="contrasenia"><br>
+      <label for="rememberme">Recordame</label>
+      <input type="checkbox" id="rememberme" name="rememberme"><br><br>
       <input type="submit" value="Submit">
-      <% if (locals.error) { %>
-        <span style="color:red"><%= locals.error %></span>
+      <% if (failed) { %> 
+        <br>
+        <span style="color:red">Combinacion de password y email incorrecta</span>
+        <br>
       <% } %>
+     <!-- = locals.error  -->
     </form>
   </body>
 

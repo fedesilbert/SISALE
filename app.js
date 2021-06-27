@@ -18,6 +18,7 @@ var profileEdit = require('./routes/profile-edit');
 var profile = require('./routes/profile');
 var resultadoBusqueda = require('./routes/resultadoBusqueda');
 var securityRouter = require('./routes/security');
+const Usuario = require('./database/models/Usuario');
 
 
 
@@ -31,30 +32,9 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({ secret:'pcWorksdb', resave: false, saveUninitialized: false } ));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(
-  session({
-    secret: 'secret',
-    resave: false,
-    saveUninitialized: true,
-    cookie: {
-      maxAge: 1000 * 60 * 60 * 24 * 7,
-    },
-  }),
-);
-
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-
-app.use('/', routeProd);
-app.use('/product-add', productAdd );
-app.use('/profile-edit', profileEdit );
-app.use('/profile', profile );
-app.use('/', securityRouter)
-app.use('/resultadoBusqueda', resultadoBusqueda );
-app.use('/css', express.static(__dirname = 'public/stylesheets'))
-app.use('/img', express.static(__dirname = 'public/images'))
  //Mid Cookes
 app.use(async (req, res, next) => {
   if (req.cookies.userId !== undefined && req.session.user === undefined) {
@@ -68,6 +48,21 @@ app.use((req, res, next) => {
   if (req.session.user !== undefined) res.locals.user = req.session.user;
   next();
 });
+
+
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+
+app.use('/', routeProd);
+app.use('/product-add', productAdd );
+app.use('/profile-edit', profileEdit );
+app.use('/profile', profile );
+app.use('/', securityRouter)
+app.use('/resultadoBusqueda', resultadoBusqueda );
+app.use('/css', express.static(__dirname = 'public/stylesheets'))
+app.use('/img', express.static(__dirname = 'public/images'))
+
+
 
 
 
@@ -89,5 +84,6 @@ app.use(function(err, req, res, next) {
 
 
 app.listen(3000, () => console.log("Servidor corriendo en el puerto 3000"));
+
 
 module.exports = app;
