@@ -40,7 +40,9 @@ const productsController = {
                     where: { producto_id: req.params.id },
                     include: [
                         { association: 'comentarios_usuario' },
-
+                    ],
+                    order:[
+                        ["fecha_comentario", "DESC"]
                     ]
                 })
                 

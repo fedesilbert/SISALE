@@ -1,9 +1,10 @@
+let db = require("../database/models");
 
 const usersController = {
     index: function (req, res) {
-        db.User.findAll()
+        db.Usuario.findByPk(req.params.id)
         .then((data) => {
-            return res.render('users/index', { 
+            return res.render('seguridad/profile', { 
                 users: data,
             });
         })
