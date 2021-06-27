@@ -16,6 +16,9 @@ module.exports = (sequelize, DataTypes) => {
     comentario: {
       type: DataTypes.STRING
     },
+    fecha_comentario: {
+      type: DataTypes.DATE
+    },
     created_at: {
       type: DataTypes.DATE
     },

@@ -36,7 +36,7 @@ app.use(session({ secret:'pcWorksdb', resave: false, saveUninitialized: false } 
 app.use(express.static(path.join(__dirname, 'public')));
 
  //Mid Cookes
-app.use(async (req, res, next) => {
+ app.use(async (req, res, next) => {
   if (req.cookies.userId !== undefined && req.session.user === undefined) {
     req.session.user = await db.Usuario.findByPk(req.cookies.userId);
   }
@@ -48,6 +48,31 @@ app.use((req, res, next) => {
   if (req.session.user !== undefined) res.locals.user = req.session.user;
   next();
 });
+
+
+app.use(
+  session({
+    secret: 'secret',
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24 * 7,
+    },
+  }),
+);
+
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+
+app.use('/', routeProd);
+app.use('/product-add', productAdd );
+app.use('/profile-edit', profileEdit );
+app.use('/', profile );
+app.use('/', securityRouter)
+app.use('/resultadoBusqueda', resultadoBusqueda );
+app.use('/css', express.static(__dirname = 'public/stylesheets'))
+app.use('/img', express.static(__dirname = 'public/images'))
+
 
 
 app.use('/', indexRouter);
