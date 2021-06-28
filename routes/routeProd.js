@@ -24,6 +24,7 @@ router.get('/', productController.index)
 router.get('/:id/detail', productController.detail);
 router.all('/delete/:id', productController.delete);
 router.all('/:id/edit', productController.edit);
+router.all('/:id', productController.comentar);
 
 
 
