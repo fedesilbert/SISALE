@@ -57,8 +57,9 @@ const productsController = {
 
     },
     add: function(req, res) {
+        db.Producto.findAll()
         if (req.method === 'POST') {
-          req.body.user_id = req.session.usuario.id;
+          req.body.usuario_id = req.session.user.id;
           if (req.body.url) req.body.image = req.body.url;
           if (req.file) req.body.image = (req.file.destination + req.file.filename).replace('public', '');
           db.Producto.create(req.body)
@@ -100,16 +101,7 @@ const productsController = {
     
 
 
-      comment: (req, res)=> {
-        req.body.usuario_id = req.session.user ? req.session.user.id : 0;
-        req.body.producto_id = req.params.id;
-        db.Comentarios.create(req.body)
-          .then(() => {
-           return res.render("/products/detail")
-            
-          })
-      },
-
+     
 
 
   
