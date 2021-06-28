@@ -75,45 +75,29 @@ const productsController = {
           })
           
       },
-    // edit: function(req, res, next) {
-    //     db.Producto.findByPk(req.params.id);
-    //     if (req.method === 'POST') {
-    //      db.Producto.update({where:{
-    //          producto_id: req.params.id
-    //      }})
-    //         .then((producto) => {
+    edit: function(req, res, next) {
+         db.Producto.findByPk(req.params.id);
+       if (req.method === 'POST') {
+        db.Producto.update(req.body,{
+            where:{
+                id: req.params.id   
+            }
+        })
+            .then((data) => {
               
-    //           res.redirect( "/"+ producto.id + "/detail");
-    //         })
-    //     }
-    
-    //     if (req.method === 'GET') {
-    //         db.Producto.findByPk(req.params.id)
-    //         .then((data)=>{
-    //      return res.render('products/edit', {producto: data});
-    //     })
-          
-    //     }
-    //   },
-    async edit(req, res, next) {
-        const producto = await db.Producto.findByPk(req.params.id);
-        if (req.method === 'POST') {
-          producto.update(req.body)
-            .then((product) => {
-              
-              res.redirect('/products/' + product.id);
-            })
-            .catch((error) => {
-              next(error);
-            });
-        }
+               return res.redirect( "/"+ req.params.id + "/detail");
+           })
+         }
     
         if (req.method === 'GET') {
-          res.render('product/edit', {
-            product,
-          });
-        }
-      },
+            db.Producto.findByPk(req.params.id)
+           .then((data)=>{
+        return res.render('products/edit', {producto: data});
+        })
+          
+    }
+  },
+    
 
 
       comment: (req, res)=> {
