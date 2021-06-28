@@ -1,0 +1,53 @@
+
+
+.product-search {
+    display: block;
+    justify-content: center;
+    margin-right: 10px;
+    width: 100%;
+    display: block;
+
+}
+
+.col-md-3 {
+    justify-content: center;
+    width: 100%;
+}
+
+.col-md-3 {
+    text-align: center;
+  }
+
+  .header-search__form {
+      text-align: start;
+  }
+
+
+  .btn-primary {
+    color: #fff;
+    background-color:   #41A693 ;
+    border-color: #41A693;
+}
+
+.col-md-6 {
+    flex: 0 0 auto;
+    width: 40%;
+}
+
+.link-dark {
+    font-weight: bold;
+    color: #212529;
+}
+
+.divepico {
+    width: 40%;
+}
+
+.row {
+    justify-content: space-between;
+}
+
+
+
+
+
