@@ -1,6 +1,11 @@
 <%- include('../partials/header') %>
 
 <body>
+
+  <% if (locals.user) { %>
+    <h2>Ya estas Registrado</h2>
+  <a href="/" class="btn btn-primary">Volver a Incio</a>
+  <% } else { %>
   <h1 class="Register">Register</h1>
   <div class="formRegister">
     <form method="POST">
@@ -13,6 +18,7 @@
 	  <label for="bday">Fecha de Nacimiento:</label><br>
 	  <input type="date" id="bday" name="bday"> <br><br>
     <input type="submit" value="Submit">
+    <% } %>
 </form>
   </div>
 
