@@ -105,11 +105,12 @@ const productsController = {
   },
   comentar: async (req,res)=>{
     if (req.method === 'POST') {
-        await db.Comentarios.create(req.body,{
-            user_id : req.session.user.id,
-            producto_id : req.params.id
-        })
+        req.body.user_id = req.session.user.id
+        req.body.producto_id = req.params.id
+        await db.Comentarios.create(req.body)
+        
         res.redirect( req.params.id + "/detail")
+        
     
     }
         if (req.method === 'GET') {
