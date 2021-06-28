@@ -1,15 +1,17 @@
 <%- include('../partials/header') %>
 
   <h2 class="nombreProducto">
-    <%=producto.nombre%>
+    <%= producto.nombre %>
       <h2>
         <div class="card mb-3">
           <div class="row g-0">
             <div class="col-md-4">
+             
               <% if (locals.user && locals.user.id === producto.usuario_id) { %>
-              <a class="btn btn-danger" href="/" onclick="return confirm('Are you sure?') ? true : event.preventDefault()">Delete</a>
+              <a class="btn btn-danger" href="/" 
+               onclick="return confirm('Are you sure?') ? true : event.preventDefault()">Delete</a>
               
-              <a class="btn btn-primary" href="/<%= producto.id %>/edit">Edit</a>
+              <a class="btn btn-primary"  href="/<%= producto.id %>/edit">Edit</a>
               <% } %>
               <a href="/<%= producto.id %>/detail"><img class="imagenprod" src="<%= producto.imagen %>" alt=""
                   width="200px" /></a>                 
@@ -20,7 +22,7 @@
                 <div class="col-md-8">
                   <% if(comentarios.length > 0) { %>
                     <% for( let i = 0; i < comentarios.length; i++ ) { %>
-                      <p><a href="/<%= producto.usuario_id %>/profile" class="cleanup"><%= comentarios[i].comentarios_usuario.nombreusuario %></a> :  <%= comentarios[i].comentario %></p>
+                      <p><a href="/<%= comentarios[i].comentarios_usuario.id %>/profile"><%= comentarios[i].comentarios_usuario.nombreusuario %></a>:  <%= comentarios[i].comentario %></p>
                     <% } %>
                   <% } else { %>
                     <div class="alert alert-secondary" role="alert">

@@ -12,6 +12,7 @@ router.get('/:id/detail', productController.detail);
 router.all('/add', productController.add);
 router.all('/:id/delete', productController.delete);
 router.all('/:id/edit', productController.edit);
+router.all('/', productController.comment);
 
 
 

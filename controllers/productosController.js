@@ -76,25 +76,38 @@ const productsController = {
           
       },
     edit: function(req, res, next) {
-        db.Producto.findByPk(req.params.id);
-        if (req.method === 'POST') {
-          Producto.update(req.body)
-            .then((producto) => {
+         db.Producto.findByPk(req.params.id);
+       if (req.method === 'POST') {
+        db.Producto.update(req.body,{
+            where:{
+                id: req.params.id   
+            }
+        })
+            .then((data) => {
               
-              res.redirect( "/"+ producto.id + "/detail");
-            })
-            .catch((error) => {
-              next(error);
-            });
-        }
+               return res.redirect( "/"+ req.params.id + "/detail");
+           })
+         }
     
         if (req.method === 'GET') {
             db.Producto.findByPk(req.params.id)
-            .then((data)=>{
-         return res.render('products/edit', {producto: data});
+           .then((data)=>{
+        return res.render('products/edit', {producto: data});
         })
           
-        }
+    }
+  },
+    
+
+
+      comment: (req, res)=> {
+        req.body.usuario_id = req.session.user ? req.session.user.id : 0;
+        req.body.producto_id = req.params.id;
+        db.Comentarios.create(req.body)
+          .then(() => {
+           return res.render("/products/detail")
+            
+          })
       },
 
 

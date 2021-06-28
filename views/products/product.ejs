@@ -26,6 +26,7 @@
     <% for (const product of productos) { %>
       <div class="card mb-3">
         <div class="row g-0">
+         
           <div class="col-md-4">
             <a href="/routeProd/<%= product.id %>/detail"><img class="imagenprod" src="<%= product.imagen %>" alt=""
                 width="200px" /></a>
@@ -35,8 +36,7 @@
               <h5 class="card-title">
                 <%= product.nombre %>
               </h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                content. This content is a little bit longer.</p>
+              <p class="card-text"><%=product.descripcion %></p>
               <a href="/<%= product.id %>/detail" class="btn btn-primary">Ir al detalle</a>
               <p class="card-text"><small class="text-muted">Publicado por <%= product.producto_usuario.nombreusuario%> </small></p>
               <div class="panel-heading">Deja tu comentario!</div>
