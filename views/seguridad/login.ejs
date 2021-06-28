@@ -1,7 +1,8 @@
 <%- include('../partials/header') %>
-
+ <link rel="stylesheet" href="/stylesheets/login.css">
 <body>
-    <h1>Login</h1>
+  <h1 class="login">Login</h1>
+  <div class="formLogin">
     <form method="POST">
       <label for="email">Email:</label><br>
       <input type="text" id="email" name="email"> <br>
@@ -9,7 +10,7 @@
       <input type="password" id="password" name="contrasenia"><br>
       <label for="rememberme">Recordame</label>
       <input type="checkbox" id="rememberme" name="rememberme"><br><br>
-      <input type="submit" value="Submit">
+      <input type="submit" class="divBotones" value="Submit">
       <% if (failed) { %> 
         <br>
         <span style="color:red">Combinacion de password y email incorrecta</span>
@@ -17,6 +18,9 @@
       <% } %>
      <!-- = locals.error  -->
     </form>
+  </div>
+
+    
   </body>
 
   <%- include('../partials/footer') %>

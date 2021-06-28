@@ -10,9 +10,13 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <h2><a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a></h2>
-          <h2><a class="nav-item nav-link" href="/">Productos</a></h2>
-          <h2><a class="nav-item nav-link" href="">Perfil</a></h2>
+          <h2><a class="nav-item nav-link" href="/">Home</a></h2>
+          <% if (locals.user) { %>
+            <h2><a class="nav-item nav-link" href="/<%= user.id %>/profile">Perfil</a></h2>
+          <% } else { %>
+            <h2><a class="nav-item nav-link" href="/login">Perfil</a></h2>
+          <% } %>
+          
 
         </div>
       </div>
