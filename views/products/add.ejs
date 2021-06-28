@@ -1,21 +1,18 @@
 <%- include('../partials/header') %>
 <form method="post" enctype="multipart/form-data">
   <div class="mb-3">
-    <label for="name" class="form-label">Name</label>
-    <input type="text" class="form-control" id="name" name="name">
+    <label for="name" class="form-label">Nombre</label>
+    <input type="text" class="form-control" id="nombre" name="nombre">
   </div>
   <div class="mb-3">
-    <label for="description" class="form-label">Description</label>
-    <input type="text" class="form-control" id="description" name="description">
+    <label for="description" class="form-label">Descripcion</label>
+    <input type="text" class="form-control" id="descripcion" name="descripcion">
   </div>
   <div class="mb-3">
-    <label for="image" class="form-label">Image</label>
-    <input type="file" class="form-control" id="image" name="image" />
+    <label for="image" class="form-label">Imagen</label>
+    <input type="file" class="form-control" id="imagen" name="imagen" />
   </div>
-  <div class="mb-3">
-    <label for="url" class="form-label">External Image</label>
-    <input type="text" class="form-control" id="url" name="url" />
-  </div>
+  
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 <%- include('../partials/footer') %>
