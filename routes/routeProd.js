@@ -22,7 +22,7 @@ let productController= require('../controllers/productosController');
 router.all('/add', upload.single('imagen'), productController.add);
 router.get('/', productController.index)
 router.get('/:id/detail', productController.detail);
-router.all('/:id/delete', productController.delete);
+router.all('/delete/:id', productController.delete);
 router.all('/:id/edit', productController.edit);
 
 

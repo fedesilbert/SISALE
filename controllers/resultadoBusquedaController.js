@@ -1,11 +1,23 @@
-
+let db = require("../database/models");
+ 
+ 
+let op = db.Sequelize.Op;
+ 
 let resultadoBusquedaController = {
-    'resultadoBusqueda': function(req, res, next){
-        res.render('search-result', {resultadoBusqueda: 'resultadoBusqueda'})
+   search: function (req, res) {
+       let criteria = req.query.search
+        db.Producto.findAll({
+               where: { nombre: { [op.like]:'%'+criteria+'%'} },// si anda con fallas el op es .like
+            })
+            
+            .then((data) => {
+                return res.render('products/resultadoBusqueda', {
+                    producto: data,
+                }) 
+                
+            })
+ 
     },
-
-
-
-    
 }
+ 
 module.exports = resultadoBusquedaController;

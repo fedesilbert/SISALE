@@ -8,9 +8,9 @@
             <div class="col-md-4">
              
               <% if (locals.user && locals.user.id === producto.usuario_id) { %>
-              <a class="btn btn-danger" href="/" 
-               onclick="return confirm('Are you sure?') ? true : event.preventDefault()">Delete</a>
-              
+                <form action="/delete/<%= producto.id %>" method="POST">
+              <button class="btn btn-danger"onclick="return confirm('Are you sure?') ? true : event.preventDefault()">Delete</button>
+              </form>
               <a class="btn btn-primary"  href="/<%= producto.id %>/edit">Edit</a>
               <% } %>
               <a href="/<%= producto.id %>/detail"><img class="imagenprod" src="<%= producto.imagen %>" alt=""
