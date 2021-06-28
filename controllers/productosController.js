@@ -75,13 +75,33 @@ const productsController = {
           })
           
       },
-    edit: function(req, res, next) {
-        db.Producto.findByPk(req.params.id);
-        if (req.method === 'POST') {
-          Producto.update(req.body)
-            .then((producto) => {
+    // edit: function(req, res, next) {
+    //     db.Producto.findByPk(req.params.id);
+    //     if (req.method === 'POST') {
+    //      db.Producto.update({where:{
+    //          producto_id: req.params.id
+    //      }})
+    //         .then((producto) => {
               
-              res.redirect( "/"+ producto.id + "/detail");
+    //           res.redirect( "/"+ producto.id + "/detail");
+    //         })
+    //     }
+    
+    //     if (req.method === 'GET') {
+    //         db.Producto.findByPk(req.params.id)
+    //         .then((data)=>{
+    //      return res.render('products/edit', {producto: data});
+    //     })
+          
+    //     }
+    //   },
+    async edit(req, res, next) {
+        const producto = await db.Producto.findByPk(req.params.id);
+        if (req.method === 'POST') {
+          producto.update(req.body)
+            .then((product) => {
+              
+              res.redirect('/products/' + product.id);
             })
             .catch((error) => {
               next(error);
@@ -89,29 +109,23 @@ const productsController = {
         }
     
         if (req.method === 'GET') {
-            db.Producto.findByPk(req.params.id)
-            .then((data)=>{
-         return res.render('products/edit', {producto: data});
-        })
-          
+          res.render('product/edit', {
+            product,
+          });
         }
-        
       },
-        search: function(req, res, next){
-            let criteria = req.query.search
 
-        db.Producto.findAll({
-            where: [
-                { title: { [op.like]: '%'+criteria+'%'} }
-            ],
-        })
-        .then((data) => {
-            return res.render('products/product', { 
-                busqueda: data 
-            });
-        })
+
+      comment: (req, res)=> {
+        req.body.usuario_id = req.session.user ? req.session.user.id : 0;
+        req.body.producto_id = req.params.id;
+        db.Comentarios.create(req.body)
+          .then(() => {
+           return res.render("/products/detail")
             
-        }
+          })
+      },
+
 
 
   
