@@ -103,6 +103,19 @@ const productsController = {
           
     }
   },
+  comentar: async (req,res)=>{
+    if (req.method === 'POST') {
+        await db.Comentarios.create(req.body,{
+            user_id : req.session.user.id,
+            producto_id : req.params.id
+        })
+        res.redirect( req.params.id + "/detail")
+    
+    }
+        if (req.method === 'GET') {
+           res.render('products/detail');
+         }
+  }
     
 
 
