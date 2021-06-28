@@ -95,8 +95,23 @@ const productsController = {
         })
           
         }
+        
       },
+        search: function(req, res, next){
+            let criteria = req.query.search
 
+        db.Producto.findAll({
+            where: [
+                { title: { [op.like]: '%'+criteria+'%'} }
+            ],
+        })
+        .then((data) => {
+            return res.render('products/product', { 
+                busqueda: data 
+            });
+        })
+            
+        }
 
 
   
