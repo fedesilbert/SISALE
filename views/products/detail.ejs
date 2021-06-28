@@ -29,7 +29,7 @@
                       There is no comments yet
                     </div>
                   <% } %>
-                  <form class="form" action="/comment/<%= producto.id %>" method="POST">
+                  <form method="POST" action="/<%= producto.id %>/" >
                     <div class="mb-3">
                       <label for="comentario" class="form-label">Comment</label>
                       <input type="text" class="form-control" id="comentario" name="comentario">
