@@ -83,15 +83,6 @@ INSERT INTO `comentarios` (`id`, `producto_id`, `user_id`, `comentario`, `fecha_
 (39, 2, 2, 'Impecable funcionamiento', '2020-02-01', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (40, 1, 5, 'indiscutibles', '2020-01-02', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (41, 4, 6, 'Muy buena placa!', NULL, '2021-06-29 00:48:59', '2021-06-29 00:48:59'),
-(42, 4, 6, 'Probando comentar', NULL, '2021-06-29 00:49:17', '2021-06-29 00:49:17'),
-(43, 4, 6, 'Probando comentar', NULL, '2021-06-29 00:49:27', '2021-06-29 00:49:27'),
-(44, 1, 6, 'Muy bueno!', NULL, '2021-06-29 00:49:39', '2021-06-29 00:49:39'),
-(45, 1, 6, 'Muy bueno!', NULL, '2021-06-29 00:49:47', '2021-06-29 00:49:47'),
-(46, 11, 6, 'Muy bueno!', NULL, '2021-06-29 00:52:16', '2021-06-29 00:52:16'),
-(47, 11, 6, 'Probando comentar', NULL, '2021-06-29 01:38:06', '2021-06-29 01:38:06'),
-(48, 11, 6, 'Hello comment world', NULL, '2021-06-29 01:39:45', '2021-06-29 01:39:45'),
-(49, 11, 6, 'gomg', NULL, '2021-06-29 01:40:49', '2021-06-29 01:40:49'),
-(50, 11, 6, 'going', NULL, '2021-06-29 01:41:00', '2021-06-29 01:41:00');
 
 -- --------------------------------------------------------
 
@@ -124,8 +115,7 @@ INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `imagen`, `usuario_id`, `
 (7, 'Air Cooler Cooler Master', 'Para aquellos que prefieren no realizar la trabajosa refrigeracion liquida, un cooler que cumple siempre.', '71ZCxMCthFL._AC_SX425_.JPG', 2, '2017-08-12', '0000-00-00 00:00:00', '2021-06-29 01:20:54'),
 (8, 'Teclado Razer Huntsman mini', 'Teclado razer con la nueva tecnologia optomecanica de la compañia, la mas rapida del mercado', 'teclado-razer-huntsman-mini-79505.JPG', 3, '2019-04-29', '0000-00-00 00:00:00', '2021-06-29 01:20:51'),
 (9, 'Monitor Zowie XL2411', 'Monitor 144hz de zowie para que no se te escape un detalle a la hora de jugar', 'D_NQ_NP_736391-MLA31063256117_062019-O.JPG', 5, '2017-06-12', '0000-00-00 00:00:00', '2021-06-29 01:21:00'),
-(10, 'Auriculares Astro A504', 'Gran auricular, especial para juegos de tipo battle royale donde impera el sonido 7.1 sorround', 'D_NQ_NP_733380-MLA40186283949_122019-O.JPG', 6, '2020-01-01', '0000-00-00 00:00:00', '2021-06-29 01:21:47'),
-(11, 'Florian', 'eee', 'imagen-1624927920395.PNG', 6, '2021-06-29', '2021-06-29 00:52:00', '2021-06-29 00:52:00');
+(10, 'Auriculares Astro A504', 'Gran auricular, especial para juegos de tipo battle royale donde impera el sonido 7.1 sorround', 'D_NQ_NP_733380-MLA40186283949_122019-O.JPG', 6, '2020-01-01', '0000-00-00 00:00:00', '2021-06-29 01:21:47');
 
 -- --------------------------------------------------------
 
