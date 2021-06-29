@@ -8,7 +8,7 @@
             <div class="col-md-4">
              
               <% if (locals.user && locals.user.id === producto.usuario_id) { %>
-                <form action="/delete/<%= producto.id %>" method="POST">
+                <form class="deleteForm" action="/delete/<%= producto.id %>" method="POST">
               <button class="btn btn-danger"onclick="return confirm('Are you sure?') ? true : event.preventDefault()">Delete</button>
               </form>
               <a class="btn btn-primary"  href="/<%= producto.id %>/edit">Edit</a>

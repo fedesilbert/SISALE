@@ -6,9 +6,8 @@ body {
 a {
   color: #00B7FF;
   font-family: 'Lato', sans-serif;
+
 }
-
-
 
 
 
@@ -27,6 +26,11 @@ a {
 .btn {
   margin-top: 12px;
   margin-left: 5px ;
+  align-self: center;
+}
+
+.deleteForm {
+  align-self: center;
 }
 
 
