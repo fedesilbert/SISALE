@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 29, 2021 at 03:52 AM
+-- Generation Time: Jun 29, 2021 at 04:12 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.7
 
@@ -83,6 +83,10 @@ INSERT INTO `comentarios` (`id`, `producto_id`, `user_id`, `comentario`, `fecha_
 (39, 2, 2, 'Impecable funcionamiento', '2020-02-01', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (40, 1, 5, 'indiscutibles', '2020-01-02', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (41, 4, 6, 'Muy buena placa!', NULL, '2021-06-29 00:48:59', '2021-06-29 00:48:59'),
+(42, 4, 6, 'Probando comentar', NULL, '2021-06-29 00:49:17', '2021-06-29 00:49:17'),
+(43, 4, 6, 'Probando comentar', NULL, '2021-06-29 00:49:27', '2021-06-29 00:49:27'),
+(44, 1, 6, 'Muy bueno!', NULL, '2021-06-29 00:49:39', '2021-06-29 00:49:39'),
+(45, 1, 6, 'Muy bueno!', NULL, '2021-06-29 00:49:47', '2021-06-29 00:49:47');
 
 -- --------------------------------------------------------
 
