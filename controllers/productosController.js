@@ -109,7 +109,7 @@ const productsController = {
         req.body.producto_id = req.params.id
         await db.Comentarios.create(req.body)
 
-        res.redirect("/comentario/" + req.params.id)
+        res.redirect("/")
 
 
     }
