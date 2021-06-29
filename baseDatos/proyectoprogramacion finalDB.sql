@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 29, 2021 at 12:33 AM
+-- Generation Time: Jun 29, 2021 at 03:52 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.7
 
@@ -81,7 +81,17 @@ INSERT INTO `comentarios` (`id`, `producto_id`, `user_id`, `comentario`, `fecha_
 (37, 2, 2, 'Impecable funcionamiento', '2020-02-01', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (38, 1, 5, 'indiscutibles', '2020-01-02', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (39, 2, 2, 'Impecable funcionamiento', '2020-02-01', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(40, 1, 5, 'indiscutibles', '2020-01-02', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(40, 1, 5, 'indiscutibles', '2020-01-02', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(41, 4, 6, 'Muy buena placa!', NULL, '2021-06-29 00:48:59', '2021-06-29 00:48:59'),
+(42, 4, 6, 'Probando comentar', NULL, '2021-06-29 00:49:17', '2021-06-29 00:49:17'),
+(43, 4, 6, 'Probando comentar', NULL, '2021-06-29 00:49:27', '2021-06-29 00:49:27'),
+(44, 1, 6, 'Muy bueno!', NULL, '2021-06-29 00:49:39', '2021-06-29 00:49:39'),
+(45, 1, 6, 'Muy bueno!', NULL, '2021-06-29 00:49:47', '2021-06-29 00:49:47'),
+(46, 11, 6, 'Muy bueno!', NULL, '2021-06-29 00:52:16', '2021-06-29 00:52:16'),
+(47, 11, 6, 'Probando comentar', NULL, '2021-06-29 01:38:06', '2021-06-29 01:38:06'),
+(48, 11, 6, 'Hello comment world', NULL, '2021-06-29 01:39:45', '2021-06-29 01:39:45'),
+(49, 11, 6, 'gomg', NULL, '2021-06-29 01:40:49', '2021-06-29 01:40:49'),
+(50, 11, 6, 'going', NULL, '2021-06-29 01:41:00', '2021-06-29 01:41:00');
 
 -- --------------------------------------------------------
 
@@ -105,16 +115,17 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `imagen`, `usuario_id`, `fecha_creacion`, `created_at`, `updated_at`) VALUES
-(1, 'Intel i7 10700k', 'Grandioso procesador de 8 nucleos y 16 hilos virtuales', 'https://www.comeros.com.ar/wp-content/uploads/2020/07/Comeros-500_.jpg', 1, '2021-04-26', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2, 'MSI RTX 3080 TI ', 'La mejor placa de video tanto para gaming como para mineria', 'https://elchapuzasinformatico.com/wp-content/uploads/2021/04/MSI-GeForce-RTX-3080-Ventus.jpg', 4, '2021-01-06', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3, 'AMD Ryzen 9 3950x', 'Procesador ryzen especial para tareas que requieren de gran capacidad multitask', 'https://www.mgtecnologia.com.ar/images/730143311809-PROCESADOR-AMD-RYZEN-9-3950X-4-7Ghz-(AM4)1601322421463.jpg', 3, '2021-04-23', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(4, 'Motherboard X570 MSI', 'Una placa madre con gran capacidad de overclocking', 'https://storage-asset.msi.com/global/picture/image/feature/mb/X570/ACE/X570-ACE.png', 4, '2021-05-12', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(5, 'Gabinete MSI FORGE', 'El gabinete mas comodo para tus armados de pc', 'https://www.venex.com.ar/products_images/1607789677_product_0_20191112115827_5dca2de3dc215.png', 1, '2021-04-22', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(6, 'Water Cooler CoolerMaster', 'La mejor refrigeracion para que tu procesador alcance las mas altas velocidades sin calentarse', 'https://files.coolermaster.com/og-image/masterliquid-ml240l-v2-rgb-1200x630.jpg', 5, '2021-01-09', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(7, 'Air Cooler Cooler Master', 'Para aquellos que prefieren no realizar la trabajosa refrigeracion liquida, un cooler que cumple siempre.', 'https://s3-eu-west-1.amazonaws.com/cdn.coolermaster.com//1033/masterair-ma620p-380x380-hover.gif', 2, '2017-08-12', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(8, 'Teclado Razer Huntsman mini', 'Teclado razer con la nueva tecnologia optomecanica de la compañia, la mas rapida del mercado', 'https://ockam-cloud-thebest.imgix.net/imagenes-s/productos/teclado-razer-huntsman-mini-79505.jpg?auto=format', 3, '2019-04-29', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(9, 'Monitor Zowie XL2411', 'Monitor 144hz de zowie para que no se te escape un detalle a la hora de jugar', 'https://http2.mlstatic.com/D_NQ_NP_736391-MLA31063256117_062019-O.jpg', 5, '2017-06-12', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(10, 'Auriculares Astro A504', 'Gran auricular, especial para juegos de tipo battle royale donde impera el sonido 7.1 sorround', 'https://http2.mlstatic.com/D_NQ_NP_733380-MLA40186283949_122019-O.jpg', 6, '2020-01-01', '0000-00-00 00:00:00', '2021-06-28 15:46:32');
+(1, 'Intel i7 10700k', 'Grandioso procesador de 8 nucleos y 16 hilos virtuales', 'Comeros-500_.JPG', 1, '2021-04-26', '0000-00-00 00:00:00', '2021-06-29 01:19:56'),
+(2, 'MSI RTX 3080 TI ', 'La mejor placa de video tanto para gaming como para mineria', 'MSI-GeForce-RTX-3080-Ventus.JPG', 4, '2021-01-06', '0000-00-00 00:00:00', '2021-06-29 01:20:05'),
+(3, 'AMD Ryzen 9 3950x', 'Procesador ryzen especial para tareas que requieren de gran capacidad multitask', '730143311809-PROCESADOR-AMD-RYZEN-9-3950X-4-7Ghz-(AM4)1601322421463.JPG', 3, '2021-04-23', '0000-00-00 00:00:00', '2021-06-29 01:20:14'),
+(4, 'Motherboard X570 MSI', 'Una placa madre con gran capacidad de overclocking', 'X570-ACE.PNG', 4, '2021-05-12', '0000-00-00 00:00:00', '2021-06-29 01:20:24'),
+(5, 'Gabinete MSI FORGE', 'El gabinete mas comodo para tus armados de pc', '1607789677_product_0_20191112115827_5dca2de3dc215.PNG', 1, '2021-04-22', '0000-00-00 00:00:00', '2021-06-29 01:20:35'),
+(6, 'Water Cooler CoolerMaster', 'La mejor refrigeracion para que tu procesador alcance las mas altas velocidades sin calentarse', 'masterliquid-ml240l-v2-rgb-1200x630.JPG', 5, '2021-01-09', '0000-00-00 00:00:00', '2021-06-29 01:20:42'),
+(7, 'Air Cooler Cooler Master', 'Para aquellos que prefieren no realizar la trabajosa refrigeracion liquida, un cooler que cumple siempre.', '71ZCxMCthFL._AC_SX425_.JPG', 2, '2017-08-12', '0000-00-00 00:00:00', '2021-06-29 01:20:54'),
+(8, 'Teclado Razer Huntsman mini', 'Teclado razer con la nueva tecnologia optomecanica de la compañia, la mas rapida del mercado', 'teclado-razer-huntsman-mini-79505.JPG', 3, '2019-04-29', '0000-00-00 00:00:00', '2021-06-29 01:20:51'),
+(9, 'Monitor Zowie XL2411', 'Monitor 144hz de zowie para que no se te escape un detalle a la hora de jugar', 'D_NQ_NP_736391-MLA31063256117_062019-O.JPG', 5, '2017-06-12', '0000-00-00 00:00:00', '2021-06-29 01:21:00'),
+(10, 'Auriculares Astro A504', 'Gran auricular, especial para juegos de tipo battle royale donde impera el sonido 7.1 sorround', 'D_NQ_NP_733380-MLA40186283949_122019-O.JPG', 6, '2020-01-01', '0000-00-00 00:00:00', '2021-06-29 01:21:47'),
+(11, 'Florian', 'eee', 'imagen-1624927920395.PNG', 6, '2021-06-29', '2021-06-29 00:52:00', '2021-06-29 00:52:00');
 
 -- --------------------------------------------------------
 
@@ -180,13 +191,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT for table `comentarios`
 --
 ALTER TABLE `comentarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `usuario`
