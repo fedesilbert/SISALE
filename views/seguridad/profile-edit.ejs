@@ -1,32 +1,23 @@
 <%- include('../partials/header') %>
- 
- 
-    <!-- Novedades -->
-    <div class="container products-wrapper">
-        <div class="row">
-            <div class="col-12">
-                <h2 class="products-title">Editar mi perfil</h2>
-            </div>
-            <!-- Show the "ultimos" products -->
-            <form action="/<% users.id%>/profile-edit" method="POST" class="product-search">
-            <h2 class="col-12"> <i> 
-                <div class="row">
-                    <h2>Nombre de usuario:</h2>
-                <input type="text" name="usuario" value= <% users.nombreusuario %> required class= "col-12" placeholder="nombre de usuario">
-            </div>
-            <div class="row">
-                <h2>Numero de telefono:</h2>
-                <input type="tel" name="telefono" value= required class= "col-12" placeholder="numero de telefono">
-            </div>
-            <div class="row">
-                <h2>Fecha de nacimiento:</h2>
-                <input type="date" name="fecha_nacimiento" value= required class= "col-12" placeholder="fecha de nacimiento">
-            </div>
-            <div class="row">
-                <input type="submit" name="confirm" value="confirm" class= "btn" size="100px">
-            </div>
-            </form>
-        
-            
+<form method="POST" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label for="name" class="form-label">Nombre del usuario</label>
+      <input type="text" class="form-control" id="nombre" name="nombre">
+    </div>
+    <div class="mb-3">
+      <label for="telefono" class="form-label">telefono</label>
+      <input type="number" class="form-control" id="telefono" name="telefono">
+    </div>
+    <div class="mb-3">
+        <label for="fecha_nacimiento" class="form-label">fecha de nacimiento</label>
+        <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento">
+      </div>
+    <div class="mb-3">
+      <label for="image" class="form-label">Imagen</label>
+      <input type="file" class="form-control" id="image" name="image" />
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
  
 <%- include('../partials/footer') %>

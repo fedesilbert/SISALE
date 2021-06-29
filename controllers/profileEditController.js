@@ -1,18 +1,18 @@
+const { sequelize } = require("../database/models");
 let db = require("../database/models");
+const op = db.Sequelize.Op;
  
- 
-let op = db.Sequelize.Op;
- 
-let profileEditController = {
+let profileEditController =  {
     update: function(req, res) {
  
         let usuarios = db.Usuario.update(req.body)
  
         if(req.method == 'POST') {
              usuarios = {
-                nombre: req.usuario.nombreusuario,
-                telefono: req.usuario.telefono,
-                fecha_nacimiento: req.usuario.fecha_nacimiento,   
+                nombre: req.usuarios.nombreusuario,
+                telefono: req.usuarios.telefono,
+                fecha_nacimiento: req.usuarios.fecha_nacimiento,
+                image: file.filename   
             }
  
  
@@ -22,7 +22,7 @@ let profileEditController = {
                 where: {id: req.session.user.id}
  
             })
-            .then((user_id) =>{
+            .then(() =>{
                 db.Usuario.findByPk(req.session.usuario.id)
                 .then(user =>{
                     req.session.usuario = user
@@ -41,4 +41,6 @@ let profileEditController = {
         }
    }
 }
+ 
+ 
 module.exports = profileEditController
