@@ -116,7 +116,7 @@ const productsController = {
         if (req.method === 'GET') {
            res.render('products/detail');
          }
-  }
+  },
     
 
 
