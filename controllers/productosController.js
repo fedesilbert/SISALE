@@ -73,12 +73,14 @@ const productsController = {
 
      
       },
-      delete: function(req, res, next) {
+      delete: async function(req, res, next) {
+          
+    await db.Comentarios.destroy({ where: { producto_id: req.params.id} });
          
-        db.Producto.destroy({ where: { id: req.params.id } })
-          .then(() => {
+       await db.Producto.destroy({ where: { id: req.params.id } })
+          
             return res.redirect('/');
-          })
+          
           
       },
     edit: function(req, res, next) {
